@@ -2,15 +2,14 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.pavlovmedia.oss.osgi.http</groupId>
-  <artifactId>com.pavlovmedia.oss.osgi.http</artifactId>
+  <groupId>com.pavlovmedia.oss.osgi.minio.client</groupId>
+  <artifactId>com.pavlovmedia.oss.osgi.minio.client</artifactId>
   <version>1.1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>http</name>
+  <name>MinIo Client</name>
   <description>
-    This is a modern wrapper around the Java http library that updates it to a more usable
-    API.
+    This is a client Bundle for MinIo.
   </description>
 
   <organization>
@@ -29,6 +28,13 @@
       <id>sdempsay</id>
       <name>Shawn Dempsay</name>
       <email>sdempsay@pavlovmedia.com</email>
+      <organization>Pavlov Media</organization>
+      <organizationUrl>http://www.pavlovmedia.com/</organizationUrl>
+    </developer>
+    <developer>
+      <id>bdillman</id>
+      <name>Bryce Dillman</name>
+      <email>bdillman@pavlovmedia.com</email>
       <organization>Pavlov Media</organization>
       <organizationUrl>http://www.pavlovmedia.com/</organizationUrl>
     </developer>
@@ -62,7 +68,7 @@
     <checkstyle.config.location>https://raw.githubusercontent.com/pavlovmedia/checkstyle/master/pavlov.xml</checkstyle.config.location>
     <checkstyle-plugin.version>3.0.0</checkstyle-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <bundle.category>http</bundle.category>
+    <bundle.category>minio-client</bundle.category>
     
     <!-- Plugin versions -->
     <maven-compiler-plugin.version>2.3</maven-compiler-plugin.version>
@@ -74,10 +80,12 @@
     <pluginversions.javaver>1.8</pluginversions.javaver>
     <maven-jar-plugin.version>2.5</maven-jar-plugin.version>
     <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
-    
+    <utils.version>1.0.2</utils.version>
     <pluginversions.javadoc>2.9.1</pluginversions.javadoc>
     <checkstyle.version>8.11</checkstyle.version>
-
+    <http.version>1.0.2</http.version>
+    <simplexml.version>2.7.1</simplexml.version>
+    
     <!-- OSGi support versions -->
     <osgi.version>5.0.0</osgi.version>
     <scr.annotations.version>1.9.12</scr.annotations.version>
@@ -138,6 +146,25 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+    
+    <dependency>
+        <groupId>com.pavlovmedia.oss.osgi.utils</groupId>
+        <artifactId>com.pavlovmedia.oss.osgi.utils.api</artifactId>
+        <version>${utils.version}</version>
+      </dependency>
+
+    <dependency>
+        <groupId>com.pavlovmedia.oss.osgi.http</groupId>
+        <artifactId>com.pavlovmedia.oss.osgi.http</artifactId>
+        <version>${http.version}</version>
+      </dependency>
+      
+            <dependency>
+        <groupId>org.simpleframework</groupId>
+        <artifactId>simple-xml</artifactId>
+        <version>${simplexml.version}</version>
+      </dependency>
+    
   </dependencies>
 
   <build>
